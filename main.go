@@ -6,16 +6,16 @@ import (
 	"net/http"
 )
 
+func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "All Good")
+}
+
 func helloGo(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
 	}
 	fmt.Fprint(w, "Hello Go!")
-}
-
-func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "All Good")
 }
 
 func main() {
